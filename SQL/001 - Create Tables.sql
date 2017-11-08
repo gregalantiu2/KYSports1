@@ -1,13 +1,16 @@
 USE KYSports1
 GO
 
+CREATE SCHEMA [Games]
+GO
+
 DROP TABLE [Games].[HomeAway]
 GO
 
 CREATE TABLE [Games].[HomeAway]
 	(
 		 HomeAwayID		INT PRIMARY KEY NOT NULL
-		,HomeAway		VARCHAR(20)
+		,GameLocation	VARCHAR(150)
 	)	
 
 
@@ -17,7 +20,7 @@ GO
 CREATE TABLE [Games].[Network]
 	(
 		 NetworkID		INT PRIMARY KEY NOT NULL
-		,Network		VARCHAR(50)NOT NULL
+		,Network		VARCHAR(100)NOT NULL
 	)
 
 DROP TABLE [Games].[Schedule]	
