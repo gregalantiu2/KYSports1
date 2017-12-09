@@ -40,5 +40,5 @@ CREATE TABLE [Games].[Schedule]
 	)
 
 
-
+	select * from Games.Schedule
 
