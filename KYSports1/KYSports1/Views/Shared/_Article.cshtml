@@ -19,11 +19,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("KYSports1", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Articles", "Article", "Home")</li>
                     <li>@Html.ActionLink("Recruiting", "Recruiting", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                 </ul>
@@ -33,7 +33,8 @@
     <div>
         <img src="~/Images/004-PRO-10.24.2017.jpg" align="left" width="300"/>
         <h1>@ViewBag.Title</h1>
-        <h3>Published:</h3>
+        <h3 id="author">Author: @ViewBag.Author</h3>
+        <h3 id="published">Published: @ViewBag.Date</h3>
         <hr />
         @RenderBody()
     </div>

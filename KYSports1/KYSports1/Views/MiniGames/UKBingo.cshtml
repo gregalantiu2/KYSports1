@@ -1,0 +1,39 @@
+﻿@model KYSports1.Models.ViewModels.BingoList
+@{
+    ViewBag.Title = "UKBingo";
+    Layout = "~/Views/Shared/_Navbar.cshtml";
+    @Scripts.Render("~/Scripts/UKBingo.js");
+    @Styles.Render("~/Content/UKBingo.css");
+}
+<body>
+    <h2>KYSports1 Bingo</h2>
+
+    <div class="col-sm-3">
+
+    </div>
+    <div id="Card" class="col-sm-6">
+        <div class="loader" id="loader"></div>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+</body>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            MakeCard();
+            $('#loader').hide();
+
+            @foreach (var item in Model.List)
+            {
+                <text>
+                var change = "#grid";
+                var number = @item.CardID - 1;
+                var texttoput =  '@item.Text'
+                $(change + number).append(texttoput);
+                </text>
+            }
+            document.getElementById("grid1").click();
+        });
+    </script>
+}

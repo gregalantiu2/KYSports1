@@ -1,16 +1,49 @@
-﻿
+﻿@model KYSports1.Models.PlayerQueryString
 @{
     ViewBag.Title = "NBA";
-    Layout = "~/Views/Shared/_Article.cshtml";
-
+    Layout = "~/Views/Shared/_NBACats.cshtml";
+    @Scripts.Render("~/Scripts/NBACats.js");
+    @Styles.Render("~/Content/NBACats.css")
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Yanone+Kaffeesatz" rel="stylesheet">
 }
-    <body>
-        <p>
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-            occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
-            expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda
-            est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-            Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-        </p>
-    </body>
 
+<head>
+
+</head>
+<body id="bootstrap-overrides">
+    @Html.Hidden("qstring",Model.QueryString)
+    
+    <div class="col-xs-12">
+        <div id="test" class="animate-top">
+            <div class="col-xs-3">
+                <a class="twitter-timeline" data-height="920" data-theme="dark" href="https://twitter.com/KY_Sports1/lists/ukbball?ref_src=twsrc%5Etfw">Tweets from Players/Coaches/Media</a>
+            </div>
+        </div>
+        <h4>Follow former Cats in the Pros - Stats on a per game basis</h4>
+        <div class="loader" id="loader"></div>
+        <div class="col-xs-9" id="JsonTable">
+            <div class="animate-bottom">
+                <div id="JsonData" style="visibility:hidden;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="animate-bottom">
+            <div id="JsonData" style="visibility:hidden;"></div>
+        </div>
+    </div>
+</body>
+
+
+@section Scripts{
+<script>
+        $(document).ready(function () {
+            GetPlayerData();
+            $('#loader').hide();
+            setTimeout(function () {
+                document.getElementById('JsonData').style.visibility = "visible";
+            }, 700);
+    });  
+</script>
+    }

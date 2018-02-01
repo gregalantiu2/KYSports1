@@ -1,0 +1,13 @@
+﻿@model KYSports1.Models.Articles
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Date = Model.Published;
+    ViewBag.Author = Model.Author;
+    ViewBag.Date = Model.Published;
+    Layout = "~/Views/Shared/_Article.cshtml";
+}
+<body>
+    @Model.ArticleBody
+</body>
+
+

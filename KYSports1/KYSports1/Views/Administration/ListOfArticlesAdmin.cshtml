@@ -1,0 +1,70 @@
+﻿@model KYSports1.Models.ViewModels.ArticleListAdmin
+@{
+    ViewBag.Title = "ListOfArticlesAdmin";
+    Layout = "~/Views/Shared/_Navbar.cshtml";
+    @Styles.Render("~/Content/AdminList.css");
+}
+<head>
+   
+</head>
+<body>
+    <h2>List Of Articles - Admin Page</h2>
+
+
+    <table id="tablelist">
+        <tr>
+            <th>Article ID</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Published</th>
+            <th>On Carousel</th>
+            <th>Category</th>
+            <td>View</td>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var m in @Model.List)
+        {
+        <tr>
+            <td id="articleid">@m.ArticleID</td>
+            <td>@m.Author</td>
+            <td>@m.Title</td>
+            <td>@m.PublisedString</td>
+            <td>@m.CarFlg</td>
+            <td>@m.Category</td>
+            <td><a href="http://localhost:64215/Administration/GetArticleById/@m.ArticleID">View</a></td>
+            <td><a href="http://localhost:64215/Administration/EditArticle/@m.ArticleID">Edit</a></td>
+            <td id="delete" class="btn-default">Delete</td>
+        </tr>
+        }
+    </table>
+</body>
+
+@section scripts{
+<script>
+    $(document).ready(function () {
+        Delete();
+    });
+
+    var id = document.getElementById("articleid").innerHTML
+
+    function Delete() {
+        $('#delete').on('click', function () {
+            $.ajax({
+                type: 'DELETE',
+                url: 'http://localhost:64215/articles/delete/' + id,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    location.reload();
+                },
+                error: function () {
+                    console.log(status);
+                }
+            });
+        });
+    }
+</script>
+}
+
+@*<a href="http://localhost:64215/Administration/DeleteArticle/@m.ArticleID">*@

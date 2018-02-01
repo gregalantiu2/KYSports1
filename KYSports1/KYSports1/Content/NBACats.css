@@ -1,0 +1,81 @@
+﻿th,td {
+    border:solid;
+    padding-right:3px;
+    padding-left:2px;
+    font-size:15px;
+    text-align:center;
+}
+th{
+    background-color:white;
+}
+h4 {
+    font-family: 'Anton', sans-serif;
+}
+#stattable {
+    width: auto !important;
+    position: inherit !important;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: 40px 0 0 -182px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 2.5s;
+    animation-name: animatebottom;
+    animation-duration: 2.5s;
+    transition-delay:2s;
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -125px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -125px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+#JsonTable{
+    padding-left:0px;
+}

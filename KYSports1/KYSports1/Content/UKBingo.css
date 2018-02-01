@@ -1,0 +1,59 @@
+﻿.square {
+    border: solid;
+    height: 125px;
+    width: 125px;
+    word-wrap: break-word;
+    background-image: none;
+}
+.squareclick {
+    border: solid;
+    height: 125px;
+    width: 125px;
+    word-wrap: break-word;
+    background-image: url("../Images/CalYell.jpg");
+    background-size: 100% 100%;
+}
+#Card {
+    display: inline-block;
+    color: #444;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    left: 33px;
+}
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: 40px 0 0 -182px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#grid1,#grid10,#grid11 {
+    padding-top:45px;
+}
+#grid0,#grid6,#grid14 {
+    padding-top:20px;
+}
+#grid2,#grid4,#grid5,#grid7,#grid8,#grid9,#grid13,#grid15,#grid16,#grid17,#grid18,#grid20,#grid21,#grid22,#grid23{
+    padding-top:25px;
+}

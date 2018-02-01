@@ -1,0 +1,9 @@
+﻿#tablelist {
+    position: absolute;
+    top: 50px;
+    left: 450px;
+}
+td, th {
+    border-top: solid;
+    padding-right: 13px;
+}

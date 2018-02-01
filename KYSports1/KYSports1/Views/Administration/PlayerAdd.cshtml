@@ -1,0 +1,49 @@
+﻿@model KYSports1.Models.ViewModels.PlayerAddView
+@{
+    ViewBag.Title = "PlayerAdd";
+    Layout = "~/Views/Shared/_Navbar.cshtml";
+    @Styles.Render("~/Content/Form.css")
+    @Scripts.Render("~/Scripts/CheckPlayerSpelling.js");
+}
+<head>
+
+</head>
+<body>
+    <h2>Player Add</h2>
+    <div id="center">
+        @using (Html.BeginForm("PlayerAdd", "Administration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <label>Enter Player's Name:</label>
+            @Html.TextBoxFor(m => m.PlayerNames.Wholename, new { id="nameinput"});
+            <input type="button" value="Check for Data" onclick="CheckPlayerName()" class="btn">
+            <button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button>
+            <button type="reset" class="btn btn-primary" id="ResetForm">Reset</button>
+        }
+    </div>
+    <div id="playertable" class="col-xs-12">
+        <table>
+            <tr>
+                <th>Players</th>
+            </tr>
+            @foreach(var m in Model.List)
+            {
+                <tr>
+                    <td>@m.Wholename</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            HideSubmit();
+            checkifexists();
+        });
+
+        
+    </script>
+}
+
+

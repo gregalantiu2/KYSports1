@@ -4,7 +4,8 @@
     padding-bottom: 5px;
 }
 footer{
-    position: fixed;
+    position: absolute;
+    top:900px;
     text-align:center;
     bottom: 0;
     width: 100%;
@@ -18,10 +19,7 @@ p {
     padding: 10px;
     color: #000000;
 }
-body {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 20px;
-}
+
 
 h1 {
     font-family: 'Anton', sans-serif;

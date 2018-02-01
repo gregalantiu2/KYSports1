@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KYSports1.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace KYSports1.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Repo Repo = new Repo();
+            Homepage model = new Homepage(); 
+            model.gameDetails = Repo.GetNextGame();
+            model.articles = Repo.GetCarouselArticles();
+            return View(model);
         }
 
         public ActionResult About()
@@ -25,6 +30,12 @@ namespace KYSports1.Controllers
             return View();
         }
         public ActionResult NBA()
+        {
+            Repo repo = new Repo();
+            var Model = repo.GetPlayerQueryString();
+            return View(Model);
+        }
+        public ActionResult Article()
         {
             return View();
         }

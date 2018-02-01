@@ -1,9 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    padding-left:0px;
-    padding-right:0px;
     margin:0;
+    padding: 50px 0px 20px 0px;
 }
 
  Set padding to keep content from hitting the edges 
@@ -19,7 +16,7 @@
     white-space: normal;
 }
 
- Set width on the form input elements since they're 100% wide by default 
+ /*Set width on the form input elements since they're 100% wide by default*/ 
 input,
 select,
 textarea {
@@ -28,6 +25,60 @@ textarea {
 .navbar-inverse {
     background-color: #0033A0 !important;
 }
-body{
-    background-color:lightgrey;
+#nextGame{
+    border-style:solid;
+    border-radius:8px;
+    border-color:black;
+    background-color:black;
+    opacity:0.4;
+}
+h3,h2 {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+}
+#module {
+    text-align: center;
+    font-weight: bold;
+    color:white;
+    font-family: 'Cuprum', sans-serif;
+    font-size:18px;
+}
+#published,#author {
+    text-align:left;
+}
+body {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    background-color:lightgray;
+}
+#UKBingo {
+    text-align: center;
+    margin-top: 8px;
+    margin-left: 14px;
+    margin-right: 4px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+#NBACats {
+    text-align: center;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 8px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}
+#submit {
+    text-align: center;
+    margin-top: 8px;
+    margin-left: 5px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    height:156px;
+    width:550px
+}
+#submittext{
+    font-size:18.5px;
+}
+#footer{
+    text-align:center;
 }

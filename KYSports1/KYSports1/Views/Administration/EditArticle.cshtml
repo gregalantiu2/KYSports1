@@ -1,0 +1,62 @@
+﻿@model KYSports1.Models.ViewModels.CreateArticle
+
+@{
+    ViewBag.Title = "EditArticle";
+    Layout = "~/Views/Shared/_Navbar.cshtml";
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+}
+
+<h2>Edit Article</h2>
+
+@using (Html.BeginForm("EditArticle", "Administration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.HiddenFor(m => m.article.ArticleID)
+<table id="formtable">
+    <tr>
+        <th>Title:</th>
+        <td>@Html.TextBox("ArticleTitle",Model.article.Title)</td>
+    </tr>
+    <tr>
+        <th>Author:</th>
+        <td>@Html.TextBox("Author",Model.article.Author)</td>
+    </tr>
+    <tr>
+        <th>Select a Category</th>
+        @*Update Thanks to John Feminella's reply I found out what the issue is. "UserId" is a property in the Model my View is strongly typed to. When Html.DropDownList("UserId" is changed to any other name but "UserId", the selected value is rendered correctly.*@
+        <td>@Html.DropDownList("categoriesID", Model.categories)</td>
+    </tr>
+    <tr>
+        <th>Include in Carousel?</th>
+        <td>@Html.CheckBox("CarFlg",Model.article.CarFlg)</td>
+    </tr>
+    <tr>
+        <th>Body:</th>
+        <td>@Html.TextArea("ArticleBody", Model.article.ArticleBody, new { @class = "form-control", @id = "mce" })</td>
+        <td><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
+    </tr>
+
+</table>
+}
+
+    <script>
+        tinymce.init({
+            selector: '#mce',
+            forced_root_block: "",
+            encoding: 'xml',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | media',
+            media_live_embeds: true,
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css'],
+            extended_valid_elements: "iframe[src|title|width|height|allowfullscreen|frameborder]"
+
+
+        });
+    </script>
