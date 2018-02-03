@@ -28,5 +28,6 @@ namespace KYSports1.Models
         public string Title { get; set; }
         public bool CarFlg { get; set; }
         public string Category { get; set; }
+        public string PageURL { get; set; }
     }
 }

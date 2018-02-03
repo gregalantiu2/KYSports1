@@ -36,12 +36,12 @@ namespace KYSports1.Controllers
             CreateArticle model = new CreateArticle();
             model.categories = new SelectList(
                 new List<SelectListItem> {
-                new SelectListItem { Text="Opinion", Value = "1"},
-                new SelectListItem { Text="Recruiting", Value = "2"},
-                new SelectListItem { Text="Post Game Analysis", Value = "3"},
-                new SelectListItem { Text="Game Preview", Value = "4"},
-                new SelectListItem { Text="Report Card", Value = "5"},
-                new SelectListItem { Text="Breaking News", Value = "6"},
+                new SelectListItem { Text="Fan Blog", Value = "1"},
+                new SelectListItem { Text="Game Preview", Value = "2"},
+                new SelectListItem { Text="Post-Game Analysis", Value = "3"},
+                new SelectListItem { Text="Breaking News", Value = "4"},
+                new SelectListItem { Text="NBA Update", Value = "5"},
+                new SelectListItem { Text="Recruiting News", Value = "6"},
                 new SelectListItem { Text="Random Views", Value = "7"}
                                           }, "Value", "Text"
                 );
@@ -74,12 +74,12 @@ namespace KYSports1.Controllers
             model.article = repo.GetArticlesByID(id);
             model.categories = new SelectList(
                 new List<SelectListItem> {
-                new SelectListItem { Text="Opinion", Value = "1"},
-                new SelectListItem { Text="Recruiting", Value = "2"},
-                new SelectListItem { Text="Post Game Analysis", Value = "3"},
-                new SelectListItem { Text="Game Preview", Value = "4"},
-                new SelectListItem { Text="Report Card", Value = "5"},
-                new SelectListItem { Text="Breaking News", Value = "6"},
+                new SelectListItem { Text="Fan Blog", Value = "1"},
+                new SelectListItem { Text="Game Preview", Value = "2"},
+                new SelectListItem { Text="Post-Game Analysis", Value = "3"},
+                new SelectListItem { Text="Breaking News", Value = "4"},
+                new SelectListItem { Text="NBA Update", Value = "5"},
+                new SelectListItem { Text="Recruiting News", Value = "6"},
                 new SelectListItem { Text="Random Views", Value = "7"}
                                           }, "Value", "Text",model.article.CategoryID
                 );

@@ -311,6 +311,8 @@ namespace KYSports1
                         single.CategoryID = int.Parse(datareader["CategoryID"].ToString());
                         single.ImageURL = datareader["ImageURL"].ToString();
                         single.Category = datareader["Category"].ToString();
+                        single.PageURL = datareader["PageURL"].ToString();
+
                         articles.Add(single);
                     }
 

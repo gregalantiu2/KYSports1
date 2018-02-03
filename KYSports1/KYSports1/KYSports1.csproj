@@ -240,6 +240,13 @@
     <Content Include="Views\Administration\ListOfArticlesAdmin.cshtml" />
     <Content Include="Views\Administration\GetArticleById.cshtml" />
     <Content Include="Views\Administration\EditArticle.cshtml" />
+    <Content Include="Views\Home\FanBlog.cshtml" />
+    <Content Include="Views\Home\GamePreview.cshtml" />
+    <Content Include="Views\Home\PostGameAnalysis.cshtml" />
+    <Content Include="Views\Home\BreakingNews.cshtml" />
+    <Content Include="Views\Home\NBAUpdate.cshtml" />
+    <Content Include="Views\Home\RecruitingNews.cshtml" />
+    <Content Include="Views\Home\RandomViews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

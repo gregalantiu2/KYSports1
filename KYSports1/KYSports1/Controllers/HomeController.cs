@@ -39,5 +39,33 @@ namespace KYSports1.Controllers
         {
             return View();
         }
+        public ActionResult FanBlog()
+        {
+            return View();
+        }
+        public ActionResult GamePreview()
+        {
+            return View();
+        }
+        public ActionResult PostGameAnalysis()
+        {
+            return View();
+        }
+        public ActionResult BreakingNews()
+        {
+            return View();
+        }
+        public ActionResult NBAUpdate()
+        {
+            return View();
+        }
+        public ActionResult RecruitingNews()
+        {
+            return View();
+        }
+        public ActionResult RandomViews()
+        {
+            return View();
+        }
     }
 }
