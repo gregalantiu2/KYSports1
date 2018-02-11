@@ -13,26 +13,30 @@
     @Html.HiddenFor(m => m.article.ArticleID)
 <table id="formtable">
     <tr>
-        <th>Title:</th>
-        <td>@Html.TextBox("ArticleTitle",Model.article.Title)</td>
+        <th id="box">Title:</th>
+        <td id="box">@Html.TextBox("ArticleTitle", Model.article.Title)</td>
     </tr>
     <tr>
-        <th>Author:</th>
-        <td>@Html.TextBox("Author",Model.article.Author)</td>
+        <th id="box">Description:</th>
+        <td id="box">@Html.TextBox("Description",Model.article.Description)</td>
     </tr>
     <tr>
-        <th>Select a Category</th>
+        <th id="box">Author:</th>
+        <td id="box">@Html.TextBox("Author", Model.article.Author)</td>
+    </tr>
+    <tr>
+        <th id="box">Select a Category</th>
         @*Update Thanks to John Feminella's reply I found out what the issue is. "UserId" is a property in the Model my View is strongly typed to. When Html.DropDownList("UserId" is changed to any other name but "UserId", the selected value is rendered correctly.*@
-        <td>@Html.DropDownList("categoriesID", Model.categories)</td>
+        <td id="box">@Html.DropDownList("categoriesID", Model.categories)</td>
     </tr>
     <tr>
-        <th>Include in Carousel?</th>
-        <td>@Html.CheckBox("CarFlg",Model.article.CarFlg)</td>
+        <th id="box">Include in Carousel?</th>
+        <td id="box">@Html.CheckBox("CarFlg", Model.article.CarFlg)</td>
     </tr>
     <tr>
-        <th>Body:</th>
-        <td>@Html.TextArea("ArticleBody", Model.article.ArticleBody, new { @class = "form-control", @id = "mce" })</td>
-        <td><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
+        <th id="box">Body:</th>
+        <td id="box">@Html.TextArea("ArticleBody", Model.article.ArticleBody, new { @class = "form-control", @id = "mce" })</td>
+        <td id="box"><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
     </tr>
 
 </table>
@@ -44,8 +48,9 @@
             forced_root_block: "",
             encoding: 'xml',
             height: 500,
-            menubar: false,
+            menubar: "insert",
             plugins: [
+                'media',
                 'advlist autolink lists link image charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
                 'insertdatetime media table contextmenu paste code'

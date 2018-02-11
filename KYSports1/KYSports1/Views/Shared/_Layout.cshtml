@@ -9,7 +9,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @Styles.Render("~/Content/NewArticle.css");
+    @Styles.Render("~/Content/NewArticle.css")
     <link href="https://fonts.googleapis.com/css?family=Anton|Cuprum|Yanone+Kaffeesatz" rel="stylesheet">
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -27,7 +27,7 @@
                                 <p id="pick">Pick A Category</p>
                                 @foreach(var m in Model.articles)
                                 {
-                                    <a href="@m.PageURL">@m.Category</a>
+                                    <a href="~/Home/ArticlesByCategory/@m.CategoryID">@m.Category</a>
                                 }
                             </div>
                         </div>

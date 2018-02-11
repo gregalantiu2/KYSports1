@@ -7,3 +7,7 @@ td, th {
     border-top: solid;
     padding-right: 13px;
 }
+#box {
+    border-top: none;
+}
+

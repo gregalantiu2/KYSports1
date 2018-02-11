@@ -48,12 +48,12 @@ namespace KYSports1.Controllers
             return View(model);
         }
         [System.Web.Mvc.HttpPost]
-        public ActionResult CreateArticle(string ArticleTitle,string Author,string ArticleBody, bool CarFlg, string categories, string ImageURL)
+        public ActionResult CreateArticle(string ArticleTitle,string Author,string ArticleBody, bool CarFlg, string categories, string ImageURL, string Description)
         {
             int CategoryID = int.Parse(categories);
             Repo repo = new Repo();
             ImageURL = "URL";
-            repo.CreateNewArticle(Author, ArticleBody, ArticleTitle, CarFlg, CategoryID, ImageURL);
+            repo.CreateNewArticle(Author, ArticleBody, ArticleTitle, CarFlg, CategoryID, ImageURL,Description);
 
             return RedirectToAction("ListOfArticlesAdmin", "Administration");
         }
@@ -87,7 +87,7 @@ namespace KYSports1.Controllers
             return View(model);
         }
         [System.Web.Mvc.HttpPost]
-        public ActionResult EditArticle(int id, string ArticleTitle, string Author, string ArticleBody, bool CarFlg, string categoriesID,string ImageURL)
+        public ActionResult EditArticle(int id, string ArticleTitle, string Description,string Author, string ArticleBody, bool CarFlg, string categoriesID,string ImageURL)
         {
             ImageURL = "URL";
             int ID = int.Parse(categoriesID);
@@ -100,6 +100,7 @@ namespace KYSports1.Controllers
             model.CarFlg = CarFlg;
             model.CategoryID = ID;
             model.ImageURL = ImageURL;
+            model.Description = Description;
             repo.UpdateArticle(model);
 
             return RedirectToAction("ListOfArticlesAdmin", "Administration");
@@ -111,13 +112,6 @@ namespace KYSports1.Controllers
             Articles model = repo.GetArticlesByID(id);
             return View(model);
         }
-        //[System.Web.Mvc.HttpPost]
-        //public ActionResult DeleteArticle(int id)
-        //{
-        //    Repo repo = new Repo();
-        //    repo.DeleteArticle(id);
-
-        //    return RedirectToAction("ListOfArticlesAdmin", "Administration");
-        //}
+        
     }
 }

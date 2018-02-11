@@ -100,6 +100,7 @@ C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\Micros
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.IO.Compression.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\VBCSCompiler.exe
+C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\ApplicationInsights.config
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\KYSports1.dll.config
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\KYSports1.dll
@@ -130,7 +131,6 @@ C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.AccessControl.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.Claims.dll
-C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.Cryptography.Algorithms.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.Cryptography.Encoding.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.Cryptography.Primitives.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
@@ -186,7 +186,7 @@ C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\Microsoft.AI.
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\bin\Microsoft.AI.Web.xml
+C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\obj\Debug\KYSports1.csprojResolveAssemblyReference.cache
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\obj\Debug\KYSports1.csproj.CoreCompileInputs.cache
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\obj\Debug\KYSports1.dll
 C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\obj\Debug\KYSports1.pdb
-C:\Users\gregtiu\Documents\Repos\KYSports1\KYSports1\KYSports1\obj\Debug\KYSports1.csprojResolveAssemblyReference.cache

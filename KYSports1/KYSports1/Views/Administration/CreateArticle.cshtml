@@ -12,27 +12,30 @@
 {
 <table id="formtable">
     <tr>
-        <th>Title:</th>
-        <td>@Html.TextBox("ArticleTitle")</td>
+        <th id="box">Title:</th>
+        <td id="box">@Html.TextBox("ArticleTitle")</td>
     </tr>
     <tr>
-        <th>Author:</th>
-        <td>@Html.TextBox("Author")</td>
+        <th id="box">Description:</th>
+        <td id="box">@Html.TextBox("Description")</td>
     </tr>
     <tr>
-        <th>Select a Category</th>
-        <td>@Html.DropDownList("categories")</td>
+        <th id="box">Author:</th>
+        <td id="box">@Html.TextBox("Author")</td>
     </tr>
     <tr>
-        <th>Include in Carousel?</th>
-        <td>@Html.CheckBox("CarFlg")</td>
+        <th id="box">Select a Category</th>
+        <td id="box">@Html.DropDownList("categories")</td>
     </tr>
     <tr>
-        <th>Body:</th>
-        <td>@Html.TextArea("ArticleBody", new { @class = "form-control", @id = "mce" })</td>
+        <th id="box">Include in Carousel?</th>
+        <td id="box">@Html.CheckBox("CarFlg")</td>
     </tr>
     <tr>
-    <td><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
+        <th id="box">Body:</th>
+        <td id="box">@Html.TextArea("ArticleBody", new { @class = "form-control", @id = "mce" })</td>
+        <td id="box"><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
+
     </tr>
 </table>
     

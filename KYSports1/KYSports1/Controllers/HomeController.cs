@@ -10,12 +10,13 @@ namespace KYSports1.Controllers
 {
     public class HomeController : Controller
     {
+        public Repo repo = new Repo();
+
         public ActionResult Index()
         {
-            Repo Repo = new Repo();
             Homepage model = new Homepage(); 
-            model.gameDetails = Repo.GetNextGame();
-            model.articles = Repo.GetCarouselArticles();
+            model.gameDetails = repo.GetNextGame();
+            model.articles = repo.GetCarouselArticles();
             return View(model);
         }
 
@@ -31,7 +32,6 @@ namespace KYSports1.Controllers
         }
         public ActionResult NBA()
         {
-            Repo repo = new Repo();
             var Model = repo.GetPlayerQueryString();
             return View(Model);
         }
@@ -39,33 +39,12 @@ namespace KYSports1.Controllers
         {
             return View();
         }
-        public ActionResult FanBlog()
+        [System.Web.Mvc.HttpGet]
+        public ActionResult ArticlesByCategory(int id)
         {
-            return View();
-        }
-        public ActionResult GamePreview()
-        {
-            return View();
-        }
-        public ActionResult PostGameAnalysis()
-        {
-            return View();
-        }
-        public ActionResult BreakingNews()
-        {
-            return View();
-        }
-        public ActionResult NBAUpdate()
-        {
-            return View();
-        }
-        public ActionResult RecruitingNews()
-        {
-            return View();
-        }
-        public ActionResult RandomViews()
-        {
-            return View();
+            var model = repo.GetArticlesByCategory(id);
+            ViewBag.Title = model[0].Category;
+            return View(model);
         }
     }
 }

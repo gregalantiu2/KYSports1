@@ -1,0 +1,25 @@
+﻿@model List<KYSports1.Models.Articles>
+
+@{
+    Layout = "~/Views/Shared/_Navbar.cshtml";
+}
+<h1>@ViewBag.Title</h1>
+@foreach (var m in Model)
+{
+<div class="col-md-3 col-md-offset-1 btn well panel panel-body" onclick="@("window.location.href='" + @Url.Action("GetArticleById", "Administration",new {id=@m.ArticleID }) + "'");">
+    <div class="row">
+        <div class="col-md-4">
+            <span><img style="width:90%" src="@Url.Content(@m.ImageURL)" /></span>
+        </div>
+        <div class="col-md-8">
+            <h2>@m.Title</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+            <span>@m.Description</span>
+        </div>
+
+    </div>
+</div>
+}

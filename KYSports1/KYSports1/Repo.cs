@@ -140,7 +140,7 @@ namespace KYSports1
             }
             return text;
         }
-        public void CreateNewArticle(string Author,string ArticleBody,string Title,bool? CarFlg,int CategoryID,string ImageURL)
+        public void CreateNewArticle(string Author,string ArticleBody,string Title,bool? CarFlg,int CategoryID,string ImageURL,string Description)
         {
             using (var connection = new SqlConnection(Settings.GetConnectionString()))
             {
@@ -149,6 +149,7 @@ namespace KYSports1
 
                 command.Parameters.AddWithValue("@Author", Author);
                 command.Parameters.AddWithValue("@Title", Title);
+                command.Parameters.AddWithValue("@Description", Description);
                 command.Parameters.AddWithValue("@ArticleBody", ArticleBody);
                 command.Parameters.AddWithValue("@CategoryID", CategoryID);
                 command.Parameters.AddWithValue("@ImageURL", ImageURL);
@@ -181,6 +182,7 @@ namespace KYSports1
                 command.Parameters.AddWithValue("@ArticleID", article.ArticleID);
                 command.Parameters.AddWithValue("@Author", article.Author);
                 command.Parameters.AddWithValue("@Title", article.Title);
+                command.Parameters.AddWithValue("@Description", article.Description);
                 command.Parameters.AddWithValue("@ArticleBody", article.ArticleBody);
                 command.Parameters.AddWithValue("@CategoryID", article.CategoryID);
                 command.Parameters.AddWithValue("@ImageURL", article.ImageURL);
@@ -210,6 +212,7 @@ namespace KYSports1
                     {
                         article.ArticleID = int.Parse(DataReader["ArticleID"].ToString());
                         article.Title = DataReader["Title"].ToString();
+                        article.Description = DataReader["Description"].ToString();
                         article.Author = DataReader["Author"].ToString();
                         article.Published = DateTime.Parse(DataReader["PublishedDate"].ToString());
                         article.ArticleBody = DataReader["ArticleBody"].ToString();
@@ -242,6 +245,7 @@ namespace KYSports1
                     {
                         article.ArticleID = int.Parse(DataReader["ArticleID"].ToString());
                         article.Title = DataReader["Title"].ToString();
+                        article.Description = DataReader["Description"].ToString();
                         article.Author = DataReader["Author"].ToString();
                         article.Published = DateTime.Parse(DataReader["PublishedDate"].ToString());
                         article.ArticleBody = DataReader["ArticleBody"].ToString();
@@ -273,6 +277,7 @@ namespace KYSports1
                         single.Author = datareader["Author"].ToString();
                         single.Published = DateTime.Parse(datareader["PublishedDate"].ToString());
                         single.Title = datareader["Title"].ToString();
+                        single.Description = datareader["Description"].ToString();
                         single.CarFlg = bool.Parse(datareader["CarFlg"].ToString());
                         single.ArticleBody = datareader["ArticleBody"].ToString();
                         single.CategoryID = int.Parse(datareader["CategoryID"].ToString());
@@ -306,6 +311,7 @@ namespace KYSports1
                         single.Author = datareader["Author"].ToString();
                         single.Published = DateTime.Parse(datareader["PublishedDate"].ToString());
                         single.Title = datareader["Title"].ToString();
+                        single.Description = datareader["Description"].ToString();
                         single.CarFlg = bool.Parse(datareader["CarFlg"].ToString());
                         single.ArticleBody = datareader["ArticleBody"].ToString();
                         single.CategoryID = int.Parse(datareader["CategoryID"].ToString());
@@ -318,6 +324,44 @@ namespace KYSports1
 
                 }
 
+            }
+            return articles;
+        }
+        public List<Articles> GetArticlesByCategory(int id)
+        {
+            List<Articles> articles = new List<Articles>();
+
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["KYSports1"].ToString();
+
+                SqlCommand cmd = new SqlCommand("admin.GetArticlesByCategory");
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CategoryID", id);
+
+                conn.Open();
+
+                using (SqlDataReader DataReader = cmd.ExecuteReader())
+                {
+                    while (DataReader.Read())
+                    {
+                        Articles single = new Articles();
+                        single.ArticleID = int.Parse(DataReader["ArticleID"].ToString());
+                        single.Author = DataReader["Author"].ToString();
+                        single.Published = DateTime.Parse(DataReader["PublishedDate"].ToString());
+                        single.Title = DataReader["Title"].ToString();
+                        single.Description = DataReader["Description"].ToString();
+                        single.CarFlg = bool.Parse(DataReader["CarFlg"].ToString());
+                        single.ArticleBody = DataReader["ArticleBody"].ToString();
+                        single.CategoryID = int.Parse(DataReader["CategoryID"].ToString());
+                        single.ImageURL = DataReader["ImageURL"].ToString();
+                        single.Category = DataReader["Category"].ToString();
+                        single.PageURL = DataReader["PageURL"].ToString();
+
+                        articles.Add(single);
+                    }
+                }
             }
             return articles;
         }

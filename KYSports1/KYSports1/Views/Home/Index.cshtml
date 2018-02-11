@@ -6,24 +6,28 @@
 <body>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
+        @*<ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+        </ol>*@
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox" style=" max-width:100%; max-height: 500px !important;">
+        <div id="pic" class="carousel-inner" role="listbox" style=" max-width:100%; max-height: 500px !important;">
             @foreach (var m in Model.articles)
             {
                 <div class="item active">
                     <a href="~/Administration/GetArticleById/@m.ArticleID">
-                    <img src="~/Images/@m.ImageURL" alt="Big Blue Madness">
+                    <img  id="pic" src="~/Images/@m.ImageURL" alt="Big Blue Madness">
+                        <div class="carousel-caption">
+                            <h1 id="title">@m.Title</h1>
+                            <h3 id="desc">@m.Description</h3>
+                        </div>
                     </a>
+
                 </div>
             }
         </div>
-
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
