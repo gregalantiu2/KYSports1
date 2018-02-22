@@ -1,4 +1,5 @@
-﻿using KYSports1.Models.ViewModels;
+﻿using KYSports1.Models;
+using KYSports1.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,31 +20,45 @@ namespace KYSports1.Controllers
             model.articles = repo.GetCarouselArticles();
             return View(model);
         }
-
+        public ActionResult NavBar()
+        {
+            var model = new List<Articles>();
+            model = repo.GetAllArticles();
+            return View(model);
+        }
         public ActionResult About()
-        { 
-            return View();
+        {
+            ArticlePage model = new ArticlePage();
+            model.list = repo.GetAllArticles();
+            return View(model);
         }
 
         public ActionResult Recruiting()
         {
-  
-            return View();
+            ArticlePage model = new ArticlePage();
+            model.list = repo.GetAllArticles();
+            return View(model);
         }
         public ActionResult NBA()
         {
-            var Model = repo.GetPlayerQueryString();
-            return View(Model);
+            ArticlePage model = new ArticlePage();
+            model.list = repo.GetAllArticles();
+            model.pstring = repo.GetPlayerQueryString();
+            return View(model);
         }
-        public ActionResult Article()
+        public ActionResult ContactUs()
         {
-            return View();
+            ArticlePage model = new ArticlePage();
+            model.list = repo.GetAllArticles();
+            return View(model);
         }
         [System.Web.Mvc.HttpGet]
         public ActionResult ArticlesByCategory(int id)
         {
-            var model = repo.GetArticlesByCategory(id);
-            ViewBag.Title = model[0].Category;
+            ArticlePage model = new ArticlePage();
+            model.list = repo.GetAllArticles();
+            model.clist = repo.GetArticlesByCategory(id);
+            ViewBag.Title = model.clist[0].Category;
             return View(model);
         }
     }

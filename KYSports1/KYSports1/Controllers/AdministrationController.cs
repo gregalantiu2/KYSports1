@@ -33,8 +33,10 @@ namespace KYSports1.Controllers
         [System.Web.Mvc.HttpGet]
         public ActionResult CreateArticle()
         {
-            CreateArticle model = new CreateArticle();
-            model.categories = new SelectList(
+            ArticlePage model = new ArticlePage();
+            Repo repo = new Repo();
+            model.list = repo.GetAllArticles();
+            model.categories1 = new SelectList(
                 new List<SelectListItem> {
                 new SelectListItem { Text="Fan Blog", Value = "1"},
                 new SelectListItem { Text="Game Preview", Value = "2"},
@@ -48,11 +50,14 @@ namespace KYSports1.Controllers
             return View(model);
         }
         [System.Web.Mvc.HttpPost]
-        public ActionResult CreateArticle(string ArticleTitle,string Author,string ArticleBody, bool CarFlg, string categories, string ImageURL, string Description)
+        public ActionResult CreateArticle(string ArticleTitle,string Author,string ArticleBody, bool CarFlg, string categories1, string ImageURL, string Description)
         {
-            int CategoryID = int.Parse(categories);
+            if (ImageURL == "")
+            {
+                ImageURL = "https://i.imgur.com/N6X9cEw.png";
+            }
+            int CategoryID = int.Parse(categories1);
             Repo repo = new Repo();
-            ImageURL = "URL";
             repo.CreateNewArticle(Author, ArticleBody, ArticleTitle, CarFlg, CategoryID, ImageURL,Description);
 
             return RedirectToAction("ListOfArticlesAdmin", "Administration");
@@ -61,18 +66,19 @@ namespace KYSports1.Controllers
         public ActionResult ListOfArticlesAdmin()
         {
             Repo repo = new Repo();
-            ArticleListAdmin model = new ArticleListAdmin();
-            model.List = repo.GetAllArticles();
+            ArticlePage model = new ArticlePage();
+            model.list = repo.GetAllArticles();
 
             return View(model);
         }
         [System.Web.Mvc.HttpGet]
         public ActionResult EditArticle(int id)
         {
-            CreateArticle model = new CreateArticle();
+            ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.article = repo.GetArticlesByID(id);
-            model.categories = new SelectList(
+            model.list = repo.GetAllArticles();
+            model.articles = repo.GetArticlesByID(id);
+            model.categories1 = new SelectList(
                 new List<SelectListItem> {
                 new SelectListItem { Text="Fan Blog", Value = "1"},
                 new SelectListItem { Text="Game Preview", Value = "2"},
@@ -81,7 +87,7 @@ namespace KYSports1.Controllers
                 new SelectListItem { Text="NBA Update", Value = "5"},
                 new SelectListItem { Text="Recruiting News", Value = "6"},
                 new SelectListItem { Text="Random Views", Value = "7"}
-                                          }, "Value", "Text",model.article.CategoryID
+                                          }, "Value", "Text",model.articles.CategoryID
                 );
             
             return View(model);
@@ -89,7 +95,11 @@ namespace KYSports1.Controllers
         [System.Web.Mvc.HttpPost]
         public ActionResult EditArticle(int id, string ArticleTitle, string Description,string Author, string ArticleBody, bool CarFlg, string categoriesID,string ImageURL)
         {
-            ImageURL = "URL";
+            if(ImageURL == "")
+            {
+                ImageURL = "https://i.imgur.com/N6X9cEw.png";
+            }
+            
             int ID = int.Parse(categoriesID);
             Articles model = new Articles();
             Repo repo = new Repo();
@@ -109,7 +119,9 @@ namespace KYSports1.Controllers
         public ActionResult GetArticleById(int id)
         {
             Repo repo = new Repo();
-            Articles model = repo.GetArticlesByID(id);
+            ArticlePage model = new ArticlePage();
+            model.articles = repo.GetArticlesByID(id);
+            model.list = repo.GetAllArticles();
             return View(model);
         }
         

@@ -1,4 +1,4 @@
-﻿@model KYSports1.Models.ViewModels.ArticleListAdmin
+﻿@model KYSports1.Models.ViewModels.ArticlePage
 @{
     ViewBag.Title = "ListOfArticlesAdmin";
     Layout = "~/Views/Shared/_Navbar.cshtml";
@@ -23,10 +23,10 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        @foreach (var m in @Model.List)
+        @foreach (var m in @Model.list)
         {
         <tr>
-            <td id="articleid">@m.ArticleID</td>
+            <td class="articleid">@m.ArticleID</td>
             <td>@m.Author</td>
             <td>@m.Title</td>
             <td>@m.PublisedString</td>
@@ -46,10 +46,11 @@
         Delete();
     });
 
-    var id = document.getElementById("articleid").innerHTML
-
+    //var id = document.getElementById("articleid").innerHTML
+    //var id = null;
     function Delete() {
-        $('#delete').on('click', function () {
+        $('.btn-default').on('click', function () {
+            var id = $(this).closest('tr').find('.articleid').text();          
             $.ajax({
                 type: 'DELETE',
                 url: 'http://localhost:64215/articles/delete/' + id,

@@ -1,4 +1,4 @@
-﻿@model KYSports1.Models.PlayerQueryString
+﻿@model KYSports1.Models.ViewModels.ArticlePage
 @{
     ViewBag.Title = "NBA";
     Layout = "~/Views/Shared/_NBACats.cshtml";
@@ -12,7 +12,7 @@
 
 </head>
 <body id="bootstrap-overrides">
-    @Html.Hidden("qstring",Model.QueryString)
+    @Html.Hidden("qstring",Model.pstring.QueryString)
     
     <div class="col-xs-12">
         <div id="test" class="animate-top">

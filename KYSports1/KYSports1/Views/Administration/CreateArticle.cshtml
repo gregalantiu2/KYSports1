@@ -1,4 +1,4 @@
-﻿@model KYSports1.Models.ViewModels.CreateArticle
+﻿@model KYSports1.Models.ViewModels.ArticlePage
 @{
     ViewBag.Title = "CreateArticle";
     Layout = "~/Views/Shared/_Navbar.cshtml";
@@ -25,7 +25,11 @@
     </tr>
     <tr>
         <th id="box">Select a Category</th>
-        <td id="box">@Html.DropDownList("categories")</td>
+        <td id="box">@Html.DropDownList("categories1")</td>
+    </tr>
+    <tr>
+        <th id="box">Image URL:</th>
+        <td id="box">@Html.TextBox("ImageURL")</td>
     </tr>
     <tr>
         <th id="box">Include in Carousel?</th>

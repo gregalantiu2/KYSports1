@@ -1,0 +1,25 @@
+﻿@model KYSports1.Models.ViewModels.ArticlePage
+
+<div class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="menuitem">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="menuitem">
+                    <div class="dropdown">
+                        <button class="dropbtn">Articles</button>
+                        <div class="dropdown-content">
+                            <p id="pick">Pick A Category</p>
+                            @foreach (var m in Model.list)
+                            {
+                                <a href="~/Home/ArticlesByCategory/@m.CategoryID">@m.Category</a>
+                            }
+                        </div>
+                    </div>
+                </li>
+                <li class="menuitem">@Html.ActionLink("Recruiting", "Recruiting", "Home")</li>
+                <li class="menuitem">@Html.ActionLink("About", "About", "Home")</li>
+            </ul>
+        </div>
+    </div>
+</div>

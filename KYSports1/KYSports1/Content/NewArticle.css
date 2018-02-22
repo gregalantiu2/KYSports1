@@ -91,4 +91,20 @@
     padding-left: 20px;
     font-family: 'Yanone Kaffeesatz',sans-serif;
 }
-
+#info {
+    text-align: left;
+    font-family: 'Anton', sans-serif;
+}
+#thumbnail{
+    width:140px;
+}
+h4, span {
+    font-family: 'Yanone Kaffeesatz',sans-serif;
+    font-size: 20px;
+}
+#picbox{
+    border:solid;
+}
+#about{
+    text-align:center;
+}

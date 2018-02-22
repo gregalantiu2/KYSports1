@@ -11,37 +11,21 @@
     <link href="https://fonts.googleapis.com/css?family=Anton|Yanone+Kaffeesatz" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Articles", "Article", "Home")</li>
-                    <li>@Html.ActionLink("Recruiting", "Recruiting", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @{
+        Html.RenderPartial("~/Views/Home/NavBar.cshtml");
+    }
     <div>
-        <img src="~/Images/004-PRO-10.24.2017.jpg" align="left" width="300"/>
+        <img src="@Model.articles.ImageURL" align="left" width="300" />
         <h1>@ViewBag.Title</h1>
         <h3 id="author">Author: @ViewBag.Author</h3>
         <h3 id="published">Published: @ViewBag.Date</h3>
         <hr />
         @RenderBody()
     </div>
-        <footer>
-                <hr />
-                <p id="footer">&copy; @DateTime.Now.Year - KYSports1 - UK Sports Coverage</p>
-        </footer>
+    <footer>
+        <hr />
+        <p id="footer">&copy; @DateTime.Now.Year - KYSports1 - UK Sports Coverage</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

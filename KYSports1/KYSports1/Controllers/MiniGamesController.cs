@@ -12,9 +12,10 @@ namespace KYSports1.Controllers
     {
         public ActionResult UKBingo()
         {
-            BingoList model = new BingoList();
+            ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.List = repo.GetBingoText();
+            model.list = repo.GetAllArticles();
+            model.bingo = repo.GetBingoText();
             return View(model);
         }
     }

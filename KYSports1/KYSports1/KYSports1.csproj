@@ -166,6 +166,7 @@
     <Compile Include="Models\PlayerNames.cs" />
     <Compile Include="Models\PlayerQueryString.cs" />
     <Compile Include="Models\ViewModels\ArticleListAdmin.cs" />
+    <Compile Include="Models\ViewModels\ArticlePage.cs" />
     <Compile Include="Models\ViewModels\BingoList.cs" />
     <Compile Include="Models\ViewModels\CreateArticle.cs" />
     <Compile Include="Models\ViewModels\Homepage.cs" />
@@ -244,6 +245,8 @@
     <Content Include="Views\Home\GamePreview.cshtml" />
     <Content Include="Views\Home\BreakingNews.cshtml" />
     <Content Include="Views\Home\ArticlesByCategory.cshtml" />
+    <Content Include="Views\Home\NavBar.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

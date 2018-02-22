@@ -6,25 +6,36 @@
 <body>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-        @*<ol class="carousel-indicators">
+        <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>*@
+        </ol>
 
         <!-- Wrapper for slides -->
         <div id="pic" class="carousel-inner" role="listbox" style=" max-width:100%; max-height: 500px !important;">
-            @foreach (var m in Model.articles)
+            @foreach (var m in Model.articles.Take(1))
             {
                 <div class="item active">
                     <a href="~/Administration/GetArticleById/@m.ArticleID">
-                    <img  id="pic" src="~/Images/@m.ImageURL" alt="Big Blue Madness">
+                    <img  id="pic" src="@m.ImageURL">
                         <div class="carousel-caption">
                             <h1 id="title">@m.Title</h1>
                             <h3 id="desc">@m.Description</h3>
                         </div>
                     </a>
-
+                </div>
+            }
+            @foreach (var m in Model.articles.Skip(1).Take(4))
+            {
+                <div class="item">
+                    <a href="~/Administration/GetArticleById/@m.ArticleID">
+                    <img  id="pic" src="@m.ImageURL">
+                        <div class="carousel-caption">
+                            <h1 id="title">@m.Title</h1>
+                            <h3 id="desc">@m.Description</h3>
+                        </div>
+                    </a>
                 </div>
             }
         </div>
@@ -55,13 +66,15 @@
                 <p>Keep up with former Cats that are tearing up the NBA. Stats and schedules for Notable Alum.</p>
             </div>
         </a>
-        <div class="col-md-5" id="submit">
-            <h2>Submit Content</h2>
-            <p id="submittext">
-                Ever wanted to write your own analysis or opinion piece? Now is your chance!
-                KYSports1 is all about amateur content and wants to hear from you. Here you can also
-                submit suggestions to existing content like UK Bingo, Site Design, or content you would like to see.
-            </p>
-        </div>
+        <a href="~/Home/ContactUs">
+            <div class="col-md-5" id="submit">
+                <h2>Submit Content</h2>
+                <p id="submittext">
+                    Ever wanted to write your own analysis or opinion piece? Now is your chance!
+                    KYSports1 is all about amateur content and wants to hear from you. Here you can also
+                    submit suggestions to existing content like UK Bingo, Site Design, or content you would like to see.
+                </p>
+            </div>
+        </a>
     </div>
 </body>
