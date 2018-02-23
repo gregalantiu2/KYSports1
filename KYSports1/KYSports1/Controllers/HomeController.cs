@@ -23,40 +23,40 @@ namespace KYSports1.Controllers
         public ActionResult NavBar()
         {
             var model = new List<Articles>();
-            model = repo.GetAllArticles();
+            model = repo.GetCarouselArticles();
             return View(model);
         }
         public ActionResult About()
         {
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
             return View(model);
         }
 
         public ActionResult Recruiting()
         {
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
             return View(model);
         }
         public ActionResult NBA()
         {
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
             model.pstring = repo.GetPlayerQueryString();
             return View(model);
         }
         public ActionResult ContactUs()
         {
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
             return View(model);
         }
         [System.Web.Mvc.HttpGet]
         public ActionResult ArticlesByCategory(int id)
         {
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
             model.clist = repo.GetArticlesByCategory(id);
             ViewBag.Title = model.clist[0].Category;
             return View(model);

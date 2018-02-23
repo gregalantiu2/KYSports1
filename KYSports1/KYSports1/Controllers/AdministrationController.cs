@@ -31,11 +31,13 @@ namespace KYSports1.Controllers
             return RedirectToAction("PlayerAdd", "Administration");
         }
         [System.Web.Mvc.HttpGet]
+        [ValidateInput(false)]
         public ActionResult CreateArticle()
         {
             ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
+            ViewBag.Title = model.list[0].Category;
             model.categories1 = new SelectList(
                 new List<SelectListItem> {
                 new SelectListItem { Text="Fan Blog", Value = "1"},
@@ -50,6 +52,7 @@ namespace KYSports1.Controllers
             return View(model);
         }
         [System.Web.Mvc.HttpPost]
+        [ValidateInput(false)]
         public ActionResult CreateArticle(string ArticleTitle,string Author,string ArticleBody, bool CarFlg, string categories1, string ImageURL, string Description)
         {
             if (ImageURL == "")
@@ -67,8 +70,9 @@ namespace KYSports1.Controllers
         {
             Repo repo = new Repo();
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetAllArticles();
-
+            model.list = repo.GetCarouselArticles();
+            model.clist = repo.GetAllArticles();
+            ViewBag.Title = model.list[0].Category;
             return View(model);
         }
         [System.Web.Mvc.HttpGet]
@@ -76,7 +80,8 @@ namespace KYSports1.Controllers
         {
             ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
+            ViewBag.Title = model.list[0].Category;
             model.articles = repo.GetArticlesByID(id);
             model.categories1 = new SelectList(
                 new List<SelectListItem> {
@@ -121,7 +126,8 @@ namespace KYSports1.Controllers
             Repo repo = new Repo();
             ArticlePage model = new ArticlePage();
             model.articles = repo.GetArticlesByID(id);
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
+            ViewBag.Title = model.list[0].Category;
             return View(model);
         }
         

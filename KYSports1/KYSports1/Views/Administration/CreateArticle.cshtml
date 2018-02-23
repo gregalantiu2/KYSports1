@@ -10,61 +10,59 @@
 
 @using (Html.BeginForm("CreateArticle", "Administration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-<table id="formtable">
-    <tr>
-        <th id="box">Title:</th>
-        <td id="box">@Html.TextBox("ArticleTitle")</td>
-    </tr>
-    <tr>
-        <th id="box">Description:</th>
-        <td id="box">@Html.TextBox("Description")</td>
-    </tr>
-    <tr>
-        <th id="box">Author:</th>
-        <td id="box">@Html.TextBox("Author")</td>
-    </tr>
-    <tr>
-        <th id="box">Select a Category</th>
-        <td id="box">@Html.DropDownList("categories1")</td>
-    </tr>
-    <tr>
-        <th id="box">Image URL:</th>
-        <td id="box">@Html.TextBox("ImageURL")</td>
-    </tr>
-    <tr>
-        <th id="box">Include in Carousel?</th>
-        <td id="box">@Html.CheckBox("CarFlg")</td>
-    </tr>
-    <tr>
-        <th id="box">Body:</th>
-        <td id="box">@Html.TextArea("ArticleBody", new { @class = "form-control", @id = "mce" })</td>
-        <td id="box"><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
+    <table id="formtable">
+        <tr>
+            <th id="box">Title:</th>
+            <td id="box">@Html.TextBox("ArticleTitle")</td>
+        </tr>
+        <tr>
+            <th id="box">Description:</th>
+            <td id="box">@Html.TextBox("Description")</td>
+        </tr>
+        <tr>
+            <th id="box">Author:</th>
+            <td id="box">@Html.TextBox("Author")</td>
+        </tr>
+        <tr>
+            <th id="box">Select a Category</th>
+            <td id="box">@Html.DropDownList("categories1")</td>
+        </tr>
+        <tr>
+            <th id="box">Image URL:</th>
+            <td id="box">@Html.TextBox("ImageURL")</td>
+        </tr>
+        <tr>
+            <th id="box">Include in Carousel?</th>
+            <td id="box">@Html.CheckBox("CarFlg")</td>
+        </tr>
+        <tr>
+            <th id="box">Body:</th>
+            <td id="box">@Html.TextArea("ArticleBody", new { @class = "form-control", @id = "mce" })</td>
+            <td id="box"><button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button></td>
 
-    </tr>
-</table>
-    
+        </tr>
+    </table>
+
 
 }
 
 <script>
     tinymce.init({
         selector: '#mce',
-        forced_root_block: "",
-        encoding: 'xml', 
+        //encoding: 'xml',
         height: 500,
-        menubar: false,
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code'
-        ],
+        force_br_newlines: false,
+        force_p_newlines: false,
+        forced_root_block: '',
+        plugins: 'paste contextmenu table media insertdatetime fullscreen advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code',
         toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | media',
         media_live_embeds: true,
+        extended_valid_elements: 'iframe[src|frameborder|style|scrolling|class|width|height|name|align]',
         content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
             '//www.tinymce.com/css/codepen.min.css'],
-        extended_valid_elements: "+iframe[src|width|height|name|align|class]"
-
+        ////extended_valid_elements: "+iframe[src|width|height|name|align|class]",
+        //extended_valid_elements: 'iframe[src|frameborder|style|scrolling|class|width|height|name|align]'
 
     });
 </script>

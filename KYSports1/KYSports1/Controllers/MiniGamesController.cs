@@ -14,7 +14,7 @@ namespace KYSports1.Controllers
         {
             ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.list = repo.GetAllArticles();
+            model.list = repo.GetCarouselArticles();
             model.bingo = repo.GetBingoText();
             return View(model);
         }
