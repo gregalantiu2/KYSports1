@@ -1,5 +1,7 @@
 ﻿@model KYSports1.Models.ViewModels.ArticlePage
-
+<head>
+    @Styles.Render("~/Content/NewArticle.css")
+</head>
 <div class="navbar navbar-inverse navbar-fixed-top" id="navbar">
     <div class="container">
         <div class="navbar-collapse collapse">
@@ -19,6 +21,12 @@
                 </li>
                 <li class="menuitem">@Html.ActionLink("Recruiting", "Recruiting", "Home")</li>
                 <li class="menuitem">@Html.ActionLink("About", "About", "Home")</li>
+                 @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <li id="adminoptions" >@Html.ActionLink("AriclesList", "ListOfArticlesAdmin", "Administration")</li>
+                        <li>@Html.ActionLink("CreateArticle", "CreateArticle", "Administration")</li>
+                        <li>@Html.ActionLink("AddPlayer", "PlayerAdd", "Administration")</li>
+                     }  
             </ul>
         </div>
     </div>

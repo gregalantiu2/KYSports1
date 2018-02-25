@@ -1,4 +1,4 @@
-﻿@model KYSports1.Models.ViewModels.PlayerAddView
+﻿@model KYSports1.Models.ViewModels.ArticlePage
 @{
     ViewBag.Title = "PlayerAdd";
     Layout = "~/Views/Shared/_Navbar.cshtml";
@@ -14,7 +14,7 @@
         @using (Html.BeginForm("PlayerAdd", "Administration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             <label>Enter Player's Name:</label>
-            @Html.TextBoxFor(m => m.PlayerNames.Wholename, new { id="nameinput"});
+            @Html.TextBoxFor(m => m.playernames.Wholename, new { id="nameinput"});
             <input type="button" value="Check for Data" onclick="CheckPlayerName()" class="btn">
             <button type="submit" class="btn btn-primary" id="SubmitName" onclick="SuccessMessage()">Submit</button>
             <button type="reset" class="btn btn-primary" id="ResetForm">Reset</button>
@@ -25,7 +25,7 @@
             <tr>
                 <th>Players</th>
             </tr>
-            @foreach(var m in Model.List)
+            @foreach(var m in Model.plist)
             {
                 <tr>
                     <td>@m.Wholename</td>

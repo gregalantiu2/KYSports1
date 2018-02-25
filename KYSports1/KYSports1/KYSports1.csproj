@@ -251,6 +251,7 @@
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\tinymce.js" />
     <Content Include="Scripts\UKBingo.js" />
     <Content Include="Scripts\NBACats.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />

@@ -35,11 +35,11 @@
                     <li class="menuitem">@Html.ActionLink("Recruiting", "Recruiting", "Home")</li>
                     <li class="menuitem">@Html.ActionLink("About", "About", "Home")</li>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
-                {
-                    <li>@Html.ActionLink("AriclesList", "ListOfArticlesAdmin", "Administration")</li>
-                    <li>@Html.ActionLink("CreateArticle", "CreateArticle", "Administration")</li>
-                    <li>@Html.ActionLink("AddPlayer", "PlayerAdd", "Administration")</li>
-                }     
+                    {
+                        <li id="adminoptions" >@Html.ActionLink("AriclesList", "ListOfArticlesAdmin", "Administration")</li>
+                        <li>@Html.ActionLink("CreateArticle", "CreateArticle", "Administration")</li>
+                        <li>@Html.ActionLink("AddPlayer", "PlayerAdd", "Administration")</li>
+                     }     
                 </ul>
             </div>
         </div>

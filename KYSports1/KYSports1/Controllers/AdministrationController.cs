@@ -1,5 +1,9 @@
 ﻿using KYSports1.Models;
+using KYSports1.Models.Identity;
 using KYSports1.Models.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +14,22 @@ namespace KYSports1.Controllers
 {
     public class AdministrationController : Controller
     {
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpGet]
         public ActionResult PlayerAdd()
         {
-            //need to put navbar here 
             Repo repo = new Repo();
-            PlayerAddView model = new PlayerAddView();
-            model.List = repo.GetAllPlayers(); 
-
+            ArticlePage model = new ArticlePage();
+            //PlayerAddView model = new PlayerAddView();
+            model.plist = repo.GetAllPlayers();
+            model.list = repo.GetNavBarCategories();
             return View(model);
         }
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpPost]
-        public ActionResult PlayerAdd(PlayerAddView name)
+        public ActionResult PlayerAdd(ArticlePage name)
         {
-            string[] WholeNameArray = name.PlayerNames.Wholename.Split();
+            string[] WholeNameArray = name.playernames.Wholename.Split();
 
             Repo repo = new Repo();
 
@@ -31,6 +37,7 @@ namespace KYSports1.Controllers
 
             return RedirectToAction("PlayerAdd", "Administration");
         }
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpGet]
         [ValidateInput(false)]
         public ActionResult CreateArticle()
@@ -38,7 +45,8 @@ namespace KYSports1.Controllers
             ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
             model.list = repo.GetNavBarCategories();
-            ViewBag.Title = model.list[0].Category;
+
+            //ViewBag.Title = model.list[0].Category;
             model.categories1 = new SelectList(
                 new List<SelectListItem> {
                 new SelectListItem { Text="Fan Blog", Value = "1"},
@@ -52,6 +60,7 @@ namespace KYSports1.Controllers
                 );
             return View(model);
         }
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpPost]
         [ValidateInput(false)]
         public ActionResult CreateArticle(string ArticleTitle,string Author,string ArticleBody, bool CarFlg, string categories1, string ImageURL, string Description)
@@ -66,6 +75,7 @@ namespace KYSports1.Controllers
 
             return RedirectToAction("ListOfArticlesAdmin", "Administration");
         }
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpGet]
         public ActionResult ListOfArticlesAdmin()
         {
@@ -76,6 +86,7 @@ namespace KYSports1.Controllers
             ViewBag.Title = model.list[0].Category;
             return View(model);
         }
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpGet]
         public ActionResult EditArticle(int id)
         {
@@ -98,6 +109,7 @@ namespace KYSports1.Controllers
             
             return View(model);
         }
+        [Authorize(Roles = "admin")]
         [System.Web.Mvc.HttpPost]
         public ActionResult EditArticle(int id, string ArticleTitle, string Description,string Author, string ArticleBody, bool CarFlg, string categoriesID,string ImageURL)
         {
@@ -131,6 +143,5 @@ namespace KYSports1.Controllers
             ViewBag.Title = model.list[0].Category;
             return View(model);
         }
-        
     }
 }

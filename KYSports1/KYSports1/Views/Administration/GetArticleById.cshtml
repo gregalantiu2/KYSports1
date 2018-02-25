@@ -6,7 +6,17 @@
     Layout = "~/Views/Shared/_Article.cshtml";
 }
 <body>
+    <div id="mce">
     @Model.articles.ArticleBody
+    </div>
 </body>
+
+@section scripts{
+<script>
+    $(document).ready(function () {
+        $('#mce').html($('#mce').text());
+    });
+</script>
+    }
 
 

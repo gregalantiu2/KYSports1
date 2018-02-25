@@ -15,6 +15,7 @@ namespace KYSports1.Controllers
         // DELETE api/<controller>/5
         [Route("articles/delete/{articleID}")]
         [AcceptVerbs("DELETE")]
+        [Authorize(Roles = "admin")]
         public IHttpActionResult Delete(int articleID)
         {
             _repo.DeleteArticle(articleID);
