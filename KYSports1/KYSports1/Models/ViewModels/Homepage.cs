@@ -9,6 +9,7 @@ namespace KYSports1.Models.ViewModels
     {
         public GameDetails gameDetails { get; set; }
         public List<Articles> articles { get; set; }
+        public List<Articles> navbar { get; set; }
 
     }
 }

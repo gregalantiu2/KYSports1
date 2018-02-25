@@ -16,5 +16,6 @@ namespace KYSports1.Models.ViewModels
         public CreateArticle create { get; set; }
         public SelectList categories1 { get; set; }
         public ArticleListAdmin admin { get; set; }
+        public LoginViewModel login { get; set; }
     }
 }

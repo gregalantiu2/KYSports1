@@ -13,6 +13,7 @@ namespace KYSports1.Controllers
         [System.Web.Mvc.HttpGet]
         public ActionResult PlayerAdd()
         {
+            //need to put navbar here 
             Repo repo = new Repo();
             PlayerAddView model = new PlayerAddView();
             model.List = repo.GetAllPlayers(); 
@@ -36,7 +37,7 @@ namespace KYSports1.Controllers
         {
             ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.list = repo.GetCarouselArticles();
+            model.list = repo.GetNavBarCategories();
             ViewBag.Title = model.list[0].Category;
             model.categories1 = new SelectList(
                 new List<SelectListItem> {
@@ -70,7 +71,7 @@ namespace KYSports1.Controllers
         {
             Repo repo = new Repo();
             ArticlePage model = new ArticlePage();
-            model.list = repo.GetCarouselArticles();
+            model.list = repo.GetNavBarCategories();
             model.clist = repo.GetAllArticles();
             ViewBag.Title = model.list[0].Category;
             return View(model);
@@ -80,7 +81,7 @@ namespace KYSports1.Controllers
         {
             ArticlePage model = new ArticlePage();
             Repo repo = new Repo();
-            model.list = repo.GetCarouselArticles();
+            model.list = repo.GetNavBarCategories();
             ViewBag.Title = model.list[0].Category;
             model.articles = repo.GetArticlesByID(id);
             model.categories1 = new SelectList(
@@ -126,7 +127,7 @@ namespace KYSports1.Controllers
             Repo repo = new Repo();
             ArticlePage model = new ArticlePage();
             model.articles = repo.GetArticlesByID(id);
-            model.list = repo.GetCarouselArticles();
+            model.list = repo.GetNavBarCategories();
             ViewBag.Title = model.list[0].Category;
             return View(model);
         }

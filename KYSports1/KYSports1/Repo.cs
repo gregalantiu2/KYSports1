@@ -365,5 +365,31 @@ namespace KYSports1
             }
             return articles;
         }
+        public List<Articles> GetNavBarCategories()
+        {
+            List<Articles> articles = new List<Articles>();
+
+            using (var connection = new SqlConnection(Settings.GetConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("Admin.GetCategoriesNavBar", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                using (SqlDataReader datareader = command.ExecuteReader())
+                {
+                    while (datareader.Read())
+                    {
+                        Articles single = new Articles();
+                        single.CategoryID = int.Parse(datareader["CategoryID"].ToString());
+                        single.Category = datareader["Category"].ToString();
+                        articles.Add(single);
+                    }
+
+                }
+
+            }
+            return articles;
+        }
     }
 }
