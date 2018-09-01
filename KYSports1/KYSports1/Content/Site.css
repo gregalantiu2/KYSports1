@@ -66,6 +66,9 @@ body {
     margin-right: 8px;
     background: rgba(0,0,0,0.5);
     color: white;
+    border-left: solid;
+    border-color: lightgray;
+    border-width: 9px;
 }
 #submit {
     text-align: center;
@@ -73,12 +76,27 @@ body {
     margin-left: 5px;
     background: rgba(0,0,0,0.5);
     color: white;
-    height:156px;
-    width:550px
+    height: 156px;
+    width: 550px; 
+    border-left: solid;
+    border-color: lightgray;
+    border-width: 9px;
 }
 #submittext{
     font-size:18.5px;
 }
 #footer{
     text-align:center;
+}
+#panels{
+    position:static;
+    margin-top:7px;
+}
+.paneltext{
+    color:white;
+}
+.row{
+    padding:0px;
+    margin:0px;
+
 }
